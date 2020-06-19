@@ -1,0 +1,20 @@
+{
+  "name": "rn-places-app",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "client": "cd rn-places-app-front-end && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1"
+  }
+}
