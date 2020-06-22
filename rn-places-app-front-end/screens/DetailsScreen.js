@@ -1,12 +1,32 @@
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
-function DetailsScreen() {
+function DetailsScreen({ route, navigation }) {
+  const { place } = route.params;
+  console.log(place);
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Details Screen</Text>
+    <View>
+      <View style={styles.headerContainer}>
+        <Text style={styles.header}>{place.name}</Text>
+        <View>
+          <Text style={styles.vicinity}>{place.vicinity}</Text>
+        </View>
+      </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  headerContainer: {
+    alignItems: 'center',
+    marginVertical: 20
+  },
+  header: {
+    fontSize: 20
+  },
+  vicinity: {
+    marginTop: 5
+  }
+})
 
 export default DetailsScreen;
