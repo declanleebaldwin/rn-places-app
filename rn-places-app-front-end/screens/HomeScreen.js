@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Button, Alert, TouchableOpacity  } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  Alert,
+  TouchableOpacity,
+} from "react-native";
 import axios from "axios";
 
 function HomeScreen({ navigation }) {
@@ -26,8 +33,7 @@ function HomeScreen({ navigation }) {
     }
   };
   const selectPlaceHandler = (place) => {
-    console.log("selected");
-    navigation.navigate("Details", {place: place});
+    navigation.navigate("Details", { place: place });
   };
 
   const PlacesNearbyList = placesNearby.map((place) => (
