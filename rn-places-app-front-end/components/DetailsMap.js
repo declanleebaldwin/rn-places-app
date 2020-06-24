@@ -1,20 +1,17 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { StyleSheet, Dimensions, View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 
 const DetailsMap = (props) => {
-    const [region, setRegion] = useState({
-        latitude: props.latitude,
-        longitude: props.longitude,
-        latitudeDelta: 0.05,
-        longitudeDelta: 0.05,
-      });
+  const [region, setRegion] = useState({
+    latitude: props.latitude,
+    longitude: props.longitude,
+    latitudeDelta: 0.05,
+    longitudeDelta: 0.05,
+  });
   return (
     <View style={styles.mapContainer}>
-      <MapView
-        style={styles.mapStyle}
-        region={region}
-      >
+      <MapView style={styles.mapStyle} region={region}>
         <Marker
           coordinate={{
             latitude: props.latitude,
@@ -36,7 +33,7 @@ const styles = StyleSheet.create({
   mapContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 20,
+    marginVertical: 20,
   },
 });
 

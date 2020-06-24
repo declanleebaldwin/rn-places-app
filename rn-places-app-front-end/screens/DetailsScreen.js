@@ -4,6 +4,7 @@ import axios from "axios";
 import DetailsHeader from "../components/DetailsHeader";
 import DetailsMap from "../components/DetailsMap";
 import DetailsButtons from "../components/DetailsButtons";
+import DetailsOverview from "../components/DetailsOverview";
 
 function DetailsScreen({ route, navigation }) {
   const { place } = route.params;
@@ -24,8 +25,15 @@ function DetailsScreen({ route, navigation }) {
   getPlaceDetails(place.place_id);
 
   return (
-    <View>
+    <View style={styles.container}>
       <DetailsHeader name={place.name} vicinity={place.vicinity} />
+      {placeDetails ? (
+        <DetailsOverview
+          rating={placeDetails.rating}
+          totalRatings={placeDetails.user_ratings_total}
+          phone={placeDetails.formatted_phone_number}
+        />
+      ) : null}
       <DetailsMap
         latitude={place.geometry.location.lat}
         longitude={place.geometry.location.lng}
@@ -37,6 +45,11 @@ function DetailsScreen({ route, navigation }) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "white",
+    flex: 1,
+  },
+});
 
 export default DetailsScreen;
